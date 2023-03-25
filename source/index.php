@@ -34,13 +34,17 @@
         <?php
         include("config.php");
         /*--declarando variavel--*/
-        switch (@$_REQUEST["page"])
-          /*--casos de escolha--*/{
+        switch (@$_REQUEST["page"]) {
+          /*--casos de escolha--*/
           case "novo":
             include("cadastro_aluno.php");
             break;
           case "listar":
             include("listar_aluno.php");
+            break;
+          /*--caso: SALVAR no cadastro_aluno.php--*/
+          case "salvar":
+            include("salvar_aluno.php");
             break;
         }
         ?>

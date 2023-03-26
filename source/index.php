@@ -46,6 +46,9 @@
           case "salvar":
             include("salvar_aluno.php");
             break;
+          case "editar":
+            include("editar_aluno.php");
+            break;
         }
         ?>
       </div>

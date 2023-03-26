@@ -3,7 +3,7 @@
 <!--Enviando ação para SALVAR-->
 <form class="container" action="?page=salvar" method="POST">
     <!-- Cria um campo de formulário oculto com o nome "acao" e o valor "cadastrar" -->
-    <input type="hidden" name="acao" valuer="cadastrar">
+    <input type="hidden" name="acao" value="cadastrar">
     <div class="mb-3">
         <label>Nome Completo</label>
         <input type="text" name="nome" class="form-control">

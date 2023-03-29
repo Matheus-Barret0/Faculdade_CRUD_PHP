@@ -7,6 +7,4 @@
 
     /*--iniciando conexão com o banco--*/
     $conn = new mysqli(HOST,USER,PASS,BASE);
-
-
 ?>

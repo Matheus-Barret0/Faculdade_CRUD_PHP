@@ -29,13 +29,12 @@
             print "<td>".$row->cpf."</td>";
             print "<td>".$row->endereco."</td>";
             print "<td>
-                    <button class='btn btn-success'>Editar</button>
-                    <button onclick=\"location.href='editar_aluno.php?id=".$row->id."';\" class='btn btn-danger'>Excluir</button>
+                    <a href='?page=editar&id=$row->id' class='btn btn-success'>Editar</a>
+                    <button class='btn btn-danger'>Excluir</button>
                   </td>";
             print "</tr>";
         }
         print("</table>");
-
     }else{
         print "<p class='alert alert-danger'>Aluno não encontrado!</p>";
     }

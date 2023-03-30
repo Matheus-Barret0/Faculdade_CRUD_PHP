@@ -8,9 +8,10 @@
 
 <h3 class="container">Editar Cadastro do Alunos: </h3>
 <!--Enviando ação para EDITAR-->
-<form class="container" action="?page=salvar" method="POST">
+<form class="container" action="?page=salvar" value="editar" method="POST">
     <!-- Cria um campo de formulário oculto com o nome "acao" e o valor "cadastrar" -->
-    <input type="hidden" name="editar" value="<?php print $row->id?>">
+    <input type="hidden" name="acao" value="editar">
+    <input type="hidden" name="id" value="<?php print $row->id?>">
     <div class="mb-3">
         <label>Nome Completo</label>
         <input type="text" name="nome" value="<?php print $row->nomeCompleto; ?>" class="form-control">

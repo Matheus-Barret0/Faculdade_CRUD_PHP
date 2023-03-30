@@ -21,7 +21,7 @@ switch (@$_REQUEST["acao"]){
             print "<script>location.href='?page=listar'</script>";
         }
         else{
-            print "<script>('Cadastrado sem sucesso!');</script>";
+            print "<script>alert('Cadastrado sem sucesso!');</script>";
             print "<script>location.href='?page=listar'</script>";
         }
         break;
@@ -37,20 +37,34 @@ switch (@$_REQUEST["acao"]){
                         email = '{$email}', 
                         cpf = '{$cpf}', 
                         endereco = '{$endereco}'
-                    WHERE 
-                        id =".$_REQUEST["id"];
+                        WHERE id =".$_REQUEST["id"];
         /*--executando a query apartir da variavel declarada no conf.php--*/
         $res = $conn->query($sql);
 
         if($res==true){
             print "<script>alert('Editado com sucesso!');</script>";
+            print "<script>location.href='?page=listar'</script>";
         }
         else{
             print "<script>alert('Edição sem sucesso!');</script>";
+            print "<script>location.href='?page=listar'</script>";
         }
         break;
     /*--DELETE--*/
     case "excluir":
+        $sql = "DELETE FROM alunos
+                        WHERE id =".$_REQUEST["id"];
+        /*--executando a query apartir da variavel declarada no conf.php--*/
+        $res = $conn->query($sql);
+
+        if($res==true){
+            print "<script>alert('Excluido com sucesso!');</script>";
+            print "<script>location.href='?page=listar'</script>";
+        }
+        else{
+            print "<script>alert('Exclusão sem sucesso!');</script>";
+            print "<script>location.href='?page=listar'</script>";
+        }
         break;
     }
 ?>

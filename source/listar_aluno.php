@@ -30,7 +30,7 @@
             print "<td>".$row->endereco."</td>";
             print "<td>
                     <a href='?page=editar&id=$row->id' class='btn btn-success'>Editar</a>
-                    <button class='btn btn-danger'>Excluir</button>
+                    <a href='?page=excluir&id=$row->id' class='btn btn-danger'>Excluir</button>
                   </td>";
             print "</tr>";
         }

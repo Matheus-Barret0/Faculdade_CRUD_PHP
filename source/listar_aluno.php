@@ -9,7 +9,8 @@
         $qtd = $res->num_rows;
 
         if($qtd>0){
-            print "<table class='table table-houver table-striped table-bordered mt-5'>";
+            print "<a class='btn btn-outline-primary btn mt-4' href='?page=novo'>Cadastrar</a>";
+            print "<table class='table table-houver table-striped table-bordered mt-3'>";
             print "<tr>";
                 print "<tr>";
                 print "<th>#</th>";
@@ -20,10 +21,12 @@
                 print "<th>Ações</th>";
                 print "</tr>";
 
+            $index = 0;
+            
             /*--loop para impressão do select--*/
             while($row = $res->fetch_object()){
                 print "<tr>";
-                print "<td>".$row->id."</td>";
+                print "<td>".++$index."</td>";
                 print "<td>".$row->nomeCompleto."</td>";
                 print "<td>".$row->email."</td>";
                 print "<td>".$row->cpf."</td>";
@@ -36,7 +39,8 @@
             }
             print("</table>");
         }else{
-            print "<p class='alert alert-danger'>Aluno não encontrado!</p>";
+            print "<p class='alert alert-danger mt-5'>Nenhum aluno foi encontrado!</p>";
+            print "<a class='btn btn-outline-primary btn' href='?page=novo'>Cadastrar</a>";
         }
     ?>
 </div>

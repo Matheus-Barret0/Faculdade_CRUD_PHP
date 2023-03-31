@@ -5,7 +5,7 @@
   <p>Membros: Gabriel, Matheus de Assis, Potiguara, Jéssica, Fulano, Beltrano.</p>
   <div class="mt-5">
     <p class="lead">Cadastre um usuário ou consulte os existentes:</p>
-    <a class="btn btn-outline-primary btn-lg" href="?page=novo" role="button">Cadastrar</a>
-    <a class="btn btn-outline-success btn-lg" href="?page=listar" role="button">Consultar</a>
+    <a class="btn btn-outline-primary btn-lg" href="?page=novo">Cadastrar</a>
+    <a class="btn btn-outline-success btn-lg" href="?page=listar">Consultar</a>
   </div>
 </div>

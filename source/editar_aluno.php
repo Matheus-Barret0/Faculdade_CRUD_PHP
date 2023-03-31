@@ -23,7 +23,7 @@
         </div>
         <div class="mb-3">
             <label>CPF</label>
-            <input type="number" name="cpf" value="<?php print $row->cpf; ?>" class="form-control" required>
+            <input type="text" name="cpf" value="<?php print $row->cpf; ?>" class="form-control" maxlength="11" required>
         </div>
         <div class="mb-3">
             <label>Endereço</label>

@@ -3,7 +3,7 @@
 <!--Enviando ação para SALVAR-->
 
 <div class="container mt-5">
-    <form action="?page=salvar" method="POST">
+    <form id="formulario" action="?page=salvar" method="POST">
         <!-- Cria um campo de formulário oculto com o nome "acao" e o valor "cadastrar" -->
         <input type="hidden" name="acao" value="cadastrar">
         <div class="mb-3">
@@ -28,7 +28,7 @@
             <br><br>
             <video id="video" width="320" height="240" autoplay></video>
             <canvas id="canvas" style="display: none;"></canvas>
-            <img id="imagemCapturada" style="display: none;">
+            <img id="imagemCapturada" style="display: none;" class="img-thumbnail">
         </div>
         <div class="mt-4">
             <button type="submit" class="btn btn-primary">ENVIAR</button>
@@ -40,6 +40,7 @@
 
 <script>
     //Variaveis e suas relações com o HTML
+    var formulario = document.getElementById('formulario');
     var video = document.getElementById('video');
     var canvas = document.getElementById('canvas');
     var context = canvas.getContext('2d');
@@ -70,23 +71,7 @@
                 });
         }
     });
-/*
-    btnCapturarFoto.addEventListener('click', function() {
-    // Capturar uma imagem do vídeo da câmera
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    var dataURL = canvas.toDataURL('image/jpeg');
-    // Enviar a imagem capturada para o servidor via AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'upload.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-            console.log('Foto capturada e enviada com sucesso!');
-        }
-    };
-    xhr.send('image=' + encodeURIComponent(dataURL));
-    });
-*/
+
     btnCapturarFoto.addEventListener('click', function() {
         //Capturar uma imagem do vídeo da câmera
         //Usando a API Canvas para renderizar a variavel VIDEO nas coordenadas 0,0
@@ -98,6 +83,34 @@
         imagemCapturada.style.display = 'block';
         canvas.style.display = 'none';
         btnCapturarFoto.disabled = true;
+    });
+
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o envio padrão do formulário
+        
+        if (!imagemCapturada.src) {
+            alert('Por favor, capture uma foto antes de enviar o formulário.');
+            return;
+        }
+        var formData = new FormData(formulario);
+
+        //Base64 imagem 
+        var imagemBase64 = imagemCapturada.src;
+        formData.append('imagem', imagemBase64);
+
+        //Servidor
+        fetch(formulario.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(function(response) {
+            console.log('Dados enviados com sucesso!');
+            alert('Dados enviados com sucesso!')
+            window.location.href = '?page=listar';
+        })
+        .catch(function(error) {
+            console.error('Erro ao enviar os dados: ', error);
+        });
     });
 
 </script>

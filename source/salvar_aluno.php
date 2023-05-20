@@ -9,9 +9,10 @@ switch (@$_REQUEST["acao"]){
         $email = $_POST["email"];
         $cpf = $_POST["cpf"];
         $endereco = $_POST["endereco"];
+        $imagem = $_POST['imagem'];
 
         $sql = "INSERT INTO alunos (nomeCompleto,email,cpf,endereco ) 
-                    VALUES ('{$nome}', '{$email}', '{$cpf}', '{$endereco}')";
+                    VALUES ('{$nome}', '{$email}', '{$cpf}', '{$endereco}', '{$imagem}')";
 
         /*--executando a query apartir da variavel declarada no conf.php--*/
         $res = $conn->query($sql);

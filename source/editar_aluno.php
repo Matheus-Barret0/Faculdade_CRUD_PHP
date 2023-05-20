@@ -29,6 +29,9 @@
             <label>Endereço</label>
             <input type="text" name="endereco" value="<?php print $row->endereco; ?>" class="form-control" required>
         </div>
+        <div class="mb-3">
+            <img src="<?php print $row->imagem; ?>" alt="Imagem do Aluno" class="img-thumbnail">
+        </div>
         <div class="mt-4">
             <button type="submit" class="btn btn-primary">ENVIAR</button>
             <a class="btn btn-outline-secondary" href="?page=listar" role="button">VOLTAR</a>
